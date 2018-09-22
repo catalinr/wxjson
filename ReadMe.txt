@@ -2,9 +2,6 @@
  wxJSON ReadMe
  -------------
  
- Website: http://luccat.users.sf.net/wxjson/
- Author: Luciano Cattani
- Version: 1.1.0
  Description:
  JSON (JavaScript Object Notation) is a lightweight data-interchange format.
  It is easy for humans to read and write. It is easy for machines to parse
@@ -14,6 +11,8 @@
  programmers of the C-family of languages, including C, C++, C#, Java,
  JavaScript, Perl, Python, and many others. These properties make JSON an
  ideal data-interchange language.
+ Original author: Luciano Cattani
+ Original website: http://luccat.users.sf.net/wxjson/
 
 
  INSTALLATION
