@@ -143,8 +143,7 @@
 
 BUGS
 ----
-Please, send bugs to luciano@mauriziovettorato.it or, better, open a bug report
-on SF.net for the 'wxCode' project ( http://wxcode.sourceforge.net/links.php )
+I guess they should be opened here as issues.
 
 
 LICENSE
