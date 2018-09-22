@@ -148,9 +148,7 @@ I guess they should be opened here as issues.
 
 LICENSE
 -------
-The wxJSON library is distributed under the terms of the wxWidgets license
-(http://www.wxwidgets.org/about/newlicen.htm) either the current version 3.1 or,
+The wxJSON library is distributed under the terms of the wxWindows Library Licence
+(http://www.wxwidgets.org/about/licence) either the current version 3.1 or,
 at your option, any later version.
-
-
 
