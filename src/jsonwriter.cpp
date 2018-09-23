@@ -457,12 +457,12 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
         // now iterate through all sub-items and call DoWrite() recursively
         size = value.Size();
         for ( int i = 0; i < size; i++ )  {
-            bool comma = false;
+            bool addComma = false;
             if ( i < size - 1 )  {
-                comma = true;
+                addComma = true;
             }
             wxJSONValue v = value.ItemAt( i );
-            lastChar = DoWrite( os, v, 0, comma );
+            lastChar = DoWrite( os, v, 0, addComma );
             if ( lastChar < 0 )  {
                 return lastChar;
             }
@@ -500,13 +500,13 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
         count = 0;
         for ( it = map->begin(); it != map->end(); ++it )  {
             // get the key and the value
-            wxString key = it->first;
+            wxString nextKey = it->first;
             const wxJSONValue& v = it->second;
-            bool comma = false;
+            bool addComma = false;
             if ( count < size - 1 )  {
-                comma = true;
+                addComma = true;
             }
-            lastChar = DoWrite( os, v, &key, comma );
+            lastChar = DoWrite( os, v, &nextKey, addComma );
             if ( lastChar < 0 )  {
                 return lastChar;
             }

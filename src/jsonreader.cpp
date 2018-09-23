@@ -1496,7 +1496,6 @@ wxJSONReader::ReadValue( wxInputStream& is, int ch, wxJSONValue& val )
     // the value is not syntactically correct
     AddError( _T( "Literal \'%s\' is incorrect (did you forget quotes?)"), s );
     return nextCh;
-  return nextCh;
 }
 
 
@@ -2108,13 +2107,13 @@ wxJSONReader::DoStrto_ll( const wxString& str, wxUint64* ui64, wxChar* sign )
     // corresponding power of 10
     int exponent = 0;
     for ( int i = strLen - 1; i >= index; i-- )   {
-        wxChar ch = str[i];
-        if ( ch < '0' || ch > '9' ) {
+        wxChar c = str[i];
+        if ( c < '0' || c > '9' ) {
             return false;
         }
-        ch = ch - '0';
+        c = c - '0';
         // compute the new temporary value
-        temp1 += ch * power10[exponent];
+        temp1 += c * power10[exponent];
         ++exponent;
     }
     *ui64 = temp1;

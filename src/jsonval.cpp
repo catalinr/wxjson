@@ -1664,9 +1664,9 @@ wxJSONValue::Cat( const wxString& str )
 
     bool r = false;
     if ( data->m_type == wxJSONTYPE_STRING )  {
-        wxJSONRefData* data = COW();
-        wxJSON_ASSERT( data );
-        data->m_valString.append( str );
+        wxJSONRefData* dataC = COW();
+        wxJSON_ASSERT( dataC );
+        dataC->m_valString.append( str );
     r = true;
     }
     return r;
@@ -1687,9 +1687,9 @@ wxJSONValue::Cat( const wxMemoryBuffer& buff )
 
     bool r = false;
     if ( data->m_type == wxJSONTYPE_MEMORYBUFF )  {
-        wxJSONRefData* data = COW();
-        wxJSON_ASSERT( data );
-        data->m_memBuff->AppendData( buff.GetData(), buff.GetDataLen());
+        wxJSONRefData* dataC = COW();
+        wxJSON_ASSERT( dataC );
+        dataC->m_memBuff->AppendData( buff.GetData(), buff.GetDataLen());
         r = true;
     }
     return r;
@@ -1705,9 +1705,9 @@ wxJSONValue::Cat( const wxChar* str )
 
     bool r = false;
     if ( data->m_type == wxJSONTYPE_STRING )  {
-        wxJSONRefData* data = COW();
-        wxJSON_ASSERT( data );
-        data->m_valString.append( str );
+        wxJSONRefData* dataC = COW();
+        wxJSON_ASSERT( dataC );
+        dataC->m_valString.append( str );
         r = true;
     }
     return r;
