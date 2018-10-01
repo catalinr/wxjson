@@ -2317,18 +2317,14 @@ wxJSONValue::GetInfo() const
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
 
-    wxString s;
-#if defined( WXJSON_USE_VALUE_CONTER )
-    s.Printf( _T("Object: Progr=%d Type=%s Size=%d comments=%d\n"),
-            data->m_progr,
-            wxJSONValue::TypeToString( data->m_type ).c_str(),
-            Size(),
-            data->m_comments.GetCount() );
-#else
-    s.Printf( _T("Object: Type=%s Size=%d comments=%d\n"),
-            wxJSONValue::TypeToString( data->m_type ).c_str(),
-            Size(), data->m_comments.GetCount() );
+    wxString s("Object:");
+#if defined( WXJSON_USE_VALUE_COUNTER )
+    s << " Progr=" << data->m_progr;
 #endif
+    s << " Type=" << wxJSONValue::TypeToString(data->m_type)
+      << " Size=" << Size() << " comments=" << data->m_comments.GetCount()
+      << '\n';
+
     if ( data->m_type == wxJSONTYPE_OBJECT ) {
         wxArrayString arr = GetMemberNames();
         for ( unsigned int i = 0; i < arr.size(); i++ )  {
