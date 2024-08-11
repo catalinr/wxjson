@@ -170,7 +170,7 @@ public:
     bool        AsBool( bool& b ) const;
     bool        AsDouble( double& d ) const;
     bool        AsString( wxString& str ) const;
-    bool        AsCString( wxChar* ch ) const;
+    bool        AsCString( wxChar*& ch ) const;
     wxMemoryBuffer AsMemoryBuff() const;
     bool        AsMemoryBuff( wxMemoryBuffer& buff ) const;
 
