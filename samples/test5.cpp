@@ -279,7 +279,7 @@ int Test7_6()
 	TestCout( numErrors, true );
 	int numWarn = reader.GetWarningCount();
 	TestCout( _T( "Number of warnings: "));
-	TestCout( numErrors, true );
+	TestCout( numWarn, true );
 
 	PrintValue( root, &reader );
 	return 0;
