@@ -1302,7 +1302,7 @@ wxJSONValue::AsString( wxString& str ) const
 }
 
 bool
-wxJSONValue::AsCString( wxChar* ch ) const
+wxJSONValue::AsCString( wxChar*& ch ) const
 {
     bool r = IsCString();
     if ( r )    {
