@@ -99,7 +99,7 @@ int Test3_1()
 	return 0;
 }
 
-static const char utf8Buff[] = {
+static const unsigned char utf8BuffU[] = {
 		// basic latin
 		0x61, 0x62, 0x63,		// ABC
 		0x41, 0x42, 0x43,		// abc
@@ -125,7 +125,8 @@ static const char utf8Buff[] = {
 		0xd0, 0xa7,		// 0x427 capital letter CHE
 		0			// total length (included NULL) = 36
 		};
-		
+static const char* const utf8Buff = (const char*) utf8BuffU;
+
 static const wchar_t uniBuff[] = {
 
 	// basic latin

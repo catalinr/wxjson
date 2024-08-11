@@ -262,15 +262,15 @@ int Test13_2()
 			true,		// isInt64,
 			false,		// isUInt64,
 			-1,		// asInt,
-			-1,		// asUInt,
+			(unsigned)-1,		// asUInt,
 			-1,		// asShort,
-			-1,		// asUShort,
+			(unsigned short)-1,		// asUShort,
 			-1,		// asLong,
-			-1		// asULong
+			(unsigned long)-1		// asULong
 #if defined( wxJSON_64BIT_INT )
 	           ,
 			-1,		// asInt64,
-			-1		// asUInt64
+			(wxUint64)-1		// asUInt64
 #endif
 		},
 
@@ -286,15 +286,15 @@ int Test13_2()
 			false,		// isInt64,
 			true,		// isUInt64,
 			-1,		// asInt,
-			-1,		// asUInt,
+			(unsigned)-1,		// asUInt,
 			-1,		// asShort,
-			-1,		// asUShort,
+			(unsigned short)-1,		// asUShort,
 			-1,		// asLong,
-			-1		// asULong
+			(unsigned long)-1		// asULong
 #if defined( wxJSON_64BIT_INT )
 	           ,
 			-1,		// asInt64,
-			(unsigned int) -1  // asUInt64
+			(wxUint64) -1  // asUInt64
 #endif
 		},
 
@@ -1090,7 +1090,7 @@ int Test13_7()
 	// check many values
 
 	struct Result {
-		wxChar*  str;       // the string that has to be converted
+		const wxChar*  str;       // the string that has to be converted
 		bool     res;	// result
 		bool     uRes;	// result for unsigned
 		wxInt64  value;	// value
