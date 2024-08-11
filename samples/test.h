@@ -79,12 +79,15 @@ extern int Test4_8();  // test the printf function
 //		*********** test4.cpp ****************
 //
 // family #5: test the wxJSONWriter class test various writer's flags
-extern int Test5_1();  // writing an array of values using wxJSONWRITER_NONEextern int Test5_2();  // writing an array of values using wxJSONWRITER_STYLED
+extern int Test5_1();  // writing an array of values using wxJSONWRITER_NONE
+extern int Test5_2();  // writing an array of values using wxJSONWRITER_STYLED
 extern int Test5_3();  // writing an array of values using wxJSONWRITER_WRITE_COMMENTS
-extern int Test5_4();  // writing an array of values using wxJSONWRITER_NO_LINEFEEDSextern int Test5_5();  // writing an array of values using wxJSONWRITER_SPLIT_STRING
+extern int Test5_4();  // writing an array of values using wxJSONWRITER_NO_LINEFEEDS
+extern int Test5_5();  // writing an array of values using wxJSONWRITER_SPLIT_STRING
 extern int Test5_6();  // writing an array of values using wxJSONWRITER_MULTILINE_STRING
 extern int Test5_7();  // checking the wxJSONWRITER_SPLIT_STRING (very long string)
-extern int Test5_8();  // checking the wxJSONWRITER_SPLIT_STRING (value > column 50)extern int Test5_9();   // checking the wxJSONWRITER_TAB_INDENT
+extern int Test5_8();  // checking the wxJSONWRITER_SPLIT_STRING (value > column 50)
+extern int Test5_9();  // checking the wxJSONWRITER_TAB_INDENT
 
 // family #6: test the wxJSONWriter class: unicode strings
 extern int Test6_1();  // write to wxString  a JSON array using various european charsets
