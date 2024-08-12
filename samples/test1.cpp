@@ -22,10 +22,6 @@
 
 *****************************************************************************/
 
-//#ifdef __GNUG__
-//    #pragma implementation "skeleton.cpp"
-//#endif
-
 #include <wx/app.h>
 #include <wx/ffile.h>
 #include <wx/string.h>

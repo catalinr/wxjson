@@ -28,11 +28,6 @@
 
 *****************************************************************************/
 
-//#ifdef __GNUG__
-//    #pragma implementation "skeleton.cpp"
-//#endif
-
-
 #include <wx/string.h>
 #include <wx/arrstr.h>
 #include <wx/app.h>
