@@ -858,7 +858,7 @@ int Test13_4()
 // running wxWidgets 2.8.7 compiled un Unicode=yes debug=yes
 // GCC version 4.1.1 20061011
 //
-	wxString str[] = {
+	const wxString strings[] = {
 		_T("-2147483648"),		// INT_MIN
 					//  ToLong()  TRUE, -2147483648
 					//  ToULong() TRUE, 2147483648
@@ -895,16 +895,16 @@ int Test13_4()
 	};
 
 	// we call the ToLong() and ToULong function for every string
-	for ( int i = 0; i < 8; i++ )  {
+	for (const auto & s : strings)  {
 		unsigned long int ul; long int l; bool r;
 		TestCout( _T("\nConverting the string: "));
-		TestCout( str[i] );
-		r = str[i].ToLong( &l, 10 );
+		TestCout( s );
+		r = s.ToLong( &l, 10 );
 		TestCout( _T("\n    ToLong() result="));
 		TestCout( r, true );
 		TestCout( _T("    ToLong() value="));
 		TestCout( l, true );
-		r = str[i].ToULong( &ul, 10 );
+		r = s.ToULong( &ul, 10 );
 		TestCout( _T("    ToULong() result="));
 		TestCout( r, true );
 		TestCout( _T("    ToULong() value="));
@@ -1177,30 +1177,30 @@ int Test13_7()
 		}
 	};
 
-	for ( int i = 0; i < 13; i++ )  {
+	for (auto & result : results)  {
 		bool r1, r2;
 		TestCout( _T("Converting string: "));
-		TestCout( results[i].str );
+		TestCout( result.str );
 		TestCout( _T("\n    To wxInt64 - result is: "));
-		wxString strStr( results[i].str );
+		wxString strStr( result.str );
 		r1 = wxJSONReader::Strtoll( strStr, &i64);
 		TestCout( r1, true );
 
 		TestCout( _T("    To wxUint64 - result is: "));
 		r2 = wxJSONReader::Strtoull( strStr, &ui64);
 		TestCout( r2, true );
-		ASSERT( r1 == results[i].res )
-		ASSERT( r2 == results[i].uRes )
+		ASSERT( r1 == result.res )
+		ASSERT( r2 == result.uRes )
 
 		if ( r1 ) {
 			TestCout( _T("    Printing the converted INT value: "));
 			TestCout( i64, true );
-			ASSERT( i64 == results[i].value )
+			ASSERT( i64 == result.value )
 		}
 		if ( r2 ) {
 			TestCout( _T("    Printing the converted UINT value: "));
 			TestCout( ui64, true );
-			ASSERT( ui64 == results[i].uValue )
+			ASSERT( ui64 == result.uValue )
 		}
 	}
 #else
