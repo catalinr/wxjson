@@ -209,9 +209,7 @@ wxJSONWriter::wxJSONWriter( int style, int indent, int step )
 }
 
 //! Dtor - does nothing
-wxJSONWriter::~wxJSONWriter()
-{
-}
+wxJSONWriter::~wxJSONWriter() = default;
 
 //! Write the JSONvalue object to a JSON text.
 /*!
