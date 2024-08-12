@@ -115,6 +115,8 @@ int main( int argc, char* argv[] )
 	// write output to STDOUT
 	gs_cout = new wxFFile( stdout );
 
+	wxGCC_WARNING_SUPPRESS(missing-field-initializers)
+
 #if wxCHECK_VERSION( 2, 9, 0 )
     // I got compile errors in wxW 2.9 if the string constants of the wxCmdLineDescEntry
     // class were enclosed in the _T() macro but it seems that wxW 2.8 needs that macro
@@ -586,6 +588,8 @@ int main( int argc, char* argv[] )
 		{0}
 		
 	};
+
+	wxGCC_WARNING_RESTORE(missing-field-initializers)
 
 	int numParams = cmdLine.GetParamCount();
 	int numTestStart    = 1;
