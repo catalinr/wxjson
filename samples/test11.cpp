@@ -68,7 +68,7 @@ int Test14_2()
 	root.Append( _T("fourth"));
 
 	const wxJSONInternalArray* array = root.AsArray();
-	ASSERT( array != 0 );
+	ASSERT( array != nullptr );
 	
 	/* the following does not work either if STL is or isn't enabled
 	wxJSONInternalArray::const_iterator iter;
