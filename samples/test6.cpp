@@ -94,8 +94,8 @@
 #include <wx/jsonwriter.h>
 #include "test.h"
 
-static wxString			*jsonText = 0;
-static wxMemoryOutputStream	*mem = 0;
+static wxString			*jsonText = nullptr;
+static wxMemoryOutputStream	*mem = nullptr;
 
 static void CreateJSONArray( wxJSONValue& root, int numItems )
 {

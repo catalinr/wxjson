@@ -287,7 +287,7 @@ void
 wxJSONWriter::Write( const wxJSONValue& value, wxOutputStream& os )
 {
     m_level = 0;
-    DoWrite( os, value, 0, false );
+    DoWrite( os, value, nullptr, false );
 }
 
 //! Set the format string for double values.
@@ -336,7 +336,7 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
     // note that this function is recursive
 
     // some variables that cannot be allocated in the switch statement
-    const wxJSONInternalMap* map = 0;
+    const wxJSONInternalMap* map = nullptr;
     int size;
     m_colNo = 1; m_lineNo = 1;
     // determine the comment position; it is one of:
@@ -457,7 +457,7 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
                 addComma = true;
             }
             wxJSONValue v = value.ItemAt( i );
-            lastChar = DoWrite( os, v, 0, addComma );
+            lastChar = DoWrite( os, v, nullptr, addComma );
             if ( lastChar < 0 )  {
                 return lastChar;
             }
@@ -664,7 +664,7 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
 
     // the buffer that has to be written is either UTF-8 or ANSI c_str() depending
     // on the 'm_noUtf8' flag
-    char* writeBuff = 0;
+    char* writeBuff = nullptr;
     wxCharBuffer utf8CB = str.ToUTF8();        // the UTF-8 buffer
 #if !defined( wxJSON_USE_UNICODE )
     wxCharBuffer ansiCB( str.c_str());        // the ANSI buffer
@@ -680,7 +680,7 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
 
     // NOTE: in ANSI builds UTF-8 conversion may fail (see samples/test5.cpp,
     // test 7.3) although I do not know why
-    if ( writeBuff == 0 )    {
+    if ( writeBuff == nullptr )    {
         const char* err = "<wxJSONWriter::WriteStringValue(): error converting the string to a UTF8 buffer>";
         os.Write( err, strlen( err ));
         return 0;
@@ -841,7 +841,7 @@ wxJSONWriter::WriteString( wxOutputStream& os, const wxString& str )
     wxLogTrace( writerTraceMask, _T("(%s) string to write=%s"),
                   __PRETTY_FUNCTION__, str.c_str() );
     int lastChar = 0;
-    char* writeBuff = 0;
+    char* writeBuff = nullptr;
 
     // the buffer that has to be written is either UTF-8 or ANSI c_str() depending
     // on the 'm_noUtf8' flag
@@ -861,7 +861,7 @@ wxJSONWriter::WriteString( wxOutputStream& os, const wxString& str )
 
     // NOTE: in ANSI builds UTF-8 conversion may fail (see samples/test5.cpp,
     // test 7.3) although I do not know why
-    if ( writeBuff == 0 )    {
+    if ( writeBuff == nullptr )    {
         const char* err = "<wxJSONWriter::WriteComment(): error converting the string to UTF-8>";
         os.Write( err, strlen( err ));
         return 0;

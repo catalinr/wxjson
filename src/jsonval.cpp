@@ -57,7 +57,7 @@ wxJSONRefData::wxJSONRefData()
 {
     m_lineNo   = -1;
     m_refCount = 1;
-    m_memBuff  = 0;
+    m_memBuff  = nullptr;
 
 #if defined( WXJSON_USE_VALUE_COUNTER )
     m_progr = sm_progr;
@@ -175,7 +175,7 @@ The following is an example:
 */
 wxJSONValue::wxJSONValue()
 {
-    m_refData = 0;
+    m_refData = nullptr;
     Init( wxJSONTYPE_NULL );
 }
 
@@ -191,7 +191,7 @@ wxJSONRefData*
 wxJSONValue::Init( wxJSONType type )
 {
     wxJSONRefData* data = GetRefData();
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         UnRef();
     }
 
@@ -220,17 +220,17 @@ wxJSONValue::Init( wxJSONType type )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( wxJSONType type )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     Init( type );
 }
 
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( int i )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_INT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         // the 'VAL_INT' macro expands to 'm_valLong' or 'm_valInt64' depending
         // on 64-bits integer support being enabled on not
         data->m_value.VAL_INT = i;
@@ -241,10 +241,10 @@ wxJSONValue::wxJSONValue( int i )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( unsigned int ui )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_UINT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         // the 'VAL_UINT' macro expands to 'm_valULong' or 'm_valUInt64' depending
         // on 64-bits integer support being enabled on not
         data->m_value.VAL_UINT = ui;
@@ -254,10 +254,10 @@ wxJSONValue::wxJSONValue( unsigned int ui )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( short int i )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_INT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         // the 'VAL_INT' macro expands to 'm_valLong' or 'm_valInt64' depending
         // on 64-bits integer support being enabled on not
         data->m_value.VAL_INT = i;
@@ -268,10 +268,10 @@ wxJSONValue::wxJSONValue( short int i )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( unsigned short ui )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_UINT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         // the 'VAL_UINT' macro expands to 'm_valULong' or 'm_valUInt64' depending
         // on 64-bits integer support being enabled on not
     data->m_value.VAL_UINT = ui;
@@ -281,10 +281,10 @@ wxJSONValue::wxJSONValue( unsigned short ui )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( bool b  )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_BOOL );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_value.m_valBool = b;
     }
 }
@@ -292,10 +292,10 @@ wxJSONValue::wxJSONValue( bool b  )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( double d )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_DOUBLE );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_value.m_valDouble = d;
     }
 }
@@ -303,10 +303,10 @@ wxJSONValue::wxJSONValue( double d )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( const wxChar* str )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_CSTRING );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
     #if !defined( WXJSON_USE_CSTRING )
         data->m_type = wxJSONTYPE_STRING;
         data->m_valString.assign( str );
@@ -319,10 +319,10 @@ wxJSONValue::wxJSONValue( const wxChar* str )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( const wxString& str )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_STRING );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_valString.assign( str );
     }
 }
@@ -330,10 +330,10 @@ wxJSONValue::wxJSONValue( const wxString& str )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( long int l )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_INT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_value.VAL_INT = l;
     }
 }
@@ -341,10 +341,10 @@ wxJSONValue::wxJSONValue( long int l )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( unsigned long int ul )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_UINT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_value.VAL_UINT = ul;
     }
 }
@@ -357,10 +357,10 @@ wxJSONValue::wxJSONValue( unsigned long int ul )
 */
 wxJSONValue::wxJSONValue( const wxMemoryBuffer& buff )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_MEMORYBUFF );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_memBuff = new wxMemoryBuffer();
         const void* ptr = buff.GetData();
         size_t buffLen  = buff.GetDataLen();
@@ -378,10 +378,10 @@ wxJSONValue::wxJSONValue( const wxMemoryBuffer& buff )
 */
 wxJSONValue::wxJSONValue( const void* buff, size_t len )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_MEMORYBUFF );
     wxJSON_ASSERT( data );
-    if ( data != 0 && len > 0 ) {
+    if ( data != nullptr && len > 0 ) {
         data->m_memBuff = new wxMemoryBuffer();
         data->m_memBuff->AppendData( buff, len );
     }
@@ -397,7 +397,7 @@ wxJSONValue::wxJSONValue( const void* buff, size_t len )
 */
 wxJSONValue::wxJSONValue( const wxJSONValue& other )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     Ref( other );
 
     // the progressive counter of the ctor is not copied from
@@ -1017,7 +1017,7 @@ wxJSONValue::AsString() const
 const wxChar*
 wxJSONValue::AsCString() const
 {
-    const wxChar* s = 0;
+    const wxChar* s = nullptr;
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
     switch ( data->m_type )  {
@@ -1381,7 +1381,7 @@ wxJSONValue::AsMap() const
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
 
-    const wxJSONInternalMap* v = 0;
+    const wxJSONInternalMap* v = nullptr;
     if ( data->m_type == wxJSONTYPE_OBJECT ) {
         v = &( data->m_valMap );
     }
@@ -1401,7 +1401,7 @@ wxJSONValue::AsArray() const
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
 
-    const wxJSONInternalArray* v = 0;
+    const wxJSONInternalArray* v = nullptr;
     if ( data->m_type == wxJSONTYPE_ARRAY ) {
         v = &( data->m_valArray );
     }
@@ -2125,7 +2125,7 @@ wxJSONValue::Find( unsigned index ) const
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
 
-    wxJSONValue* vp = 0;
+    wxJSONValue* vp = nullptr;
 
     if ( data->m_type == wxJSONTYPE_ARRAY )  {
         size_t size = data->m_valArray.GetCount();
@@ -2149,7 +2149,7 @@ wxJSONValue::Find( const wxString& key ) const
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
 
-    wxJSONValue* vp = 0;
+    wxJSONValue* vp = nullptr;
 
     if ( data->m_type == wxJSONTYPE_OBJECT )  {
         wxJSONInternalMap::iterator it = data->m_valMap.find( key );
@@ -2838,7 +2838,7 @@ wxJSONValue::SetType( wxJSONType type )
             // we first have to delete the actual memory buffer, if any
             if ( data->m_memBuff )  {
                 delete data->m_memBuff;
-                data->m_memBuff = 0;
+                data->m_memBuff = nullptr;
             }
             break;
         default :
@@ -2872,7 +2872,7 @@ wxJSONValue::GetLineNo() const
     // return ZERO if there is not a referenced data structure
     int n = 0;
     wxJSONRefData* data = GetRefData();
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         n = data->m_lineNo;
     }
     return n;
@@ -2926,7 +2926,7 @@ wxJSONValue::UnRef()
 
         if ( --m_refData->m_refCount == 0 )    {
             delete m_refData;
-            m_refData = NULL;
+            m_refData = nullptr;
         }
     }
 }
@@ -3270,10 +3270,10 @@ wxJSONValue::ArrayToMemoryBuff( const wxJSONValue& value )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( wxInt64 i )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_INT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_value.VAL_INT = i;
     }
 }
@@ -3281,10 +3281,10 @@ wxJSONValue::wxJSONValue( wxInt64 i )
 //! \overload wxJSONValue()
 wxJSONValue::wxJSONValue( wxUint64 ui )
 {
-    m_refData = 0;
+    m_refData = nullptr;
     wxJSONRefData* data = Init( wxJSONTYPE_UINT );
     wxJSON_ASSERT( data );
-    if ( data != 0 ) {
+    if ( data != nullptr ) {
         data->m_value.VAL_UINT = ui;
     }
 }

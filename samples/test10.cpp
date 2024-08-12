@@ -1143,7 +1143,7 @@ int Test13_7()
 		{
 			_T("-9223372036854775808" ),	// LLONG_MIN
 			true, false,
-			wxLL(-9223372036854775808), wxULL(0)
+			static_cast<wxInt64>(wxLL(-9223372036854775808)), wxULL(0)
 		},
 
 		{
@@ -1173,7 +1173,7 @@ int Test13_7()
 		{
 			_T("218446744073709551615" ),	// string is too long (21 digits)
 			false, false,
-			wxLL(-9223372036854775808), wxULL(0)
+			static_cast<wxInt64>(wxLL(-9223372036854775808)), wxULL(0)
 		}
 	};
 

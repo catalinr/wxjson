@@ -78,7 +78,7 @@ int		gs_flags;
 int		gs_list  = false;
 
 
-static wxFFile* gs_cout = 0;
+static wxFFile* gs_cout = nullptr;
 
 typedef int (*TestFunc)();
 
@@ -130,7 +130,7 @@ int main( int argc, char* argv[] )
 			"use the specified flags for the writer", wxCMD_LINE_VAL_STRING },
 		{ wxCMD_LINE_OPTION, "f", "file", "the filename to be read (test #15)",
 						wxCMD_LINE_VAL_STRING },
-		{ wxCMD_LINE_PARAM, NULL, NULL, "test [sub-test]", wxCMD_LINE_VAL_NUMBER,
+		{ wxCMD_LINE_PARAM, nullptr, nullptr, "test [sub-test]", wxCMD_LINE_VAL_NUMBER,
 				wxCMD_LINE_PARAM_OPTIONAL | wxCMD_LINE_PARAM_MULTIPLE },
 		{ wxCMD_LINE_NONE },
 	};
@@ -197,15 +197,15 @@ int main( int argc, char* argv[] )
 	TestStruc testArray[] =  {
 		// family #0 does not exist
 		{
-			0,	// m_funcPtr
+			nullptr,	// m_funcPtr
 			false,	// m_auto
 			_T( "family #0 does not exist" )	// m_testDesc
 		},
-		{ 0 },{ 0 },{ 0	},{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr	},{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 
 		// family #1		(test1.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto
 			_T( "test ctors, dtor and member functions" )
 		},
@@ -224,11 +224,11 @@ int main( int argc, char* argv[] )
 		{
 			Test1_5, 3, _T( "test access methods and other functions" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 		
 		// family #2		(test1.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto
 			_T( "test the wxJSONValue::ISSameAs() function" )
 		},
@@ -256,11 +256,11 @@ int main( int argc, char* argv[] )
 		{
 			Test2_8, 3, _T( "comparing data structure of positive INT and UINT" )
 		},
-		{ 0 },
+		{ nullptr },
 		
 		// family #3		(test3.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			1,		// Unicode
 			_T( "testing wxString::ToUTF8() and wxString::FromUTF8()" )
 		},
@@ -279,11 +279,11 @@ int main( int argc, char* argv[] )
 		{
 			Test3_5, 3, _T( "converting UTF-8 buffer to wchar_t and wxString" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 
 		// family #4		(test3.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto
 			_T( "testing the wxJSONWriter class" )
 		},
@@ -311,11 +311,11 @@ int main( int argc, char* argv[] )
 		{
 			Test4_8, 3, _T( "test the printf function with doubles" )
 		},
-		{ 0 },
+		{ nullptr },
 		
 		// family #5		(test4.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto
 			_T( "testing the wxJSONWriter class with various flags" )
 		},
@@ -350,7 +350,7 @@ int main( int argc, char* argv[] )
 
 		// family #6		(test4.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			1,		// m_auto 1=unicode, not applicable in ANSI builds
 			_T( "testing the wxJSONWriter class with Unicode" )
 		},
@@ -360,12 +360,12 @@ int main( int argc, char* argv[] )
 		{
 			Test6_2, 1, _T( "writing to stream an array of strings from different charsets" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 		
 
 		// family #7		(test5.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			1,		// m_auto 1=unicode, not applicable in ANSI builds
 			_T( "testing the wxJSONReader class (only US-ASCII input)" )
 		},
@@ -400,7 +400,7 @@ int main( int argc, char* argv[] )
 
 		// family #8		(test5.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto
 			_T( "testing the wxJSONReader class (strings use different charsets)" )
 		},
@@ -419,12 +419,12 @@ int main( int argc, char* argv[] )
 		{
 			Test8_5, 2, _T( "(ANSI) read a latin-1 string from UTF-8 buffer" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 
 
 		// family #9		(test6.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			0,		// m_auto (none)
 			_T( "testing the wxJSON reader and writer speed" )
 		},
@@ -440,11 +440,11 @@ int main( int argc, char* argv[] )
 		{
 			Test9_4, 3, _T( "writing 40,000 values to a string object" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 		
 		// family #10		(test7.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto (all)
 			_T( "test the comment related functions (writer)" )
 		},
@@ -466,12 +466,12 @@ int main( int argc, char* argv[] )
 		{
 			Test10_6, 3, _T( "write a commented value using style wxJSONWRITER_COMMENTS_AFTER" )
 		},
-		{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },
 		
 
 		// family #11		(test8.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto (all)
 			_T( "test the comment related functions (reader)" )
 		},
@@ -490,11 +490,11 @@ int main( int argc, char* argv[] )
 		{
 			Test11_5, 3, _T( "second test storing comments (COMMENTS_AFTER)" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 		
 		// family #12		(test9.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto (all)
 			_T( "test the copy-on-write implementation" )
 		},
@@ -507,12 +507,12 @@ int main( int argc, char* argv[] )
 		{
 			Test12_3, 3, _T( "copy, write and test of sub-levels" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 
 		
 		// family #13		(test10.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto (all)
 			_T( "test the 64-bit integer support" )
 		},
@@ -537,12 +537,12 @@ int main( int argc, char* argv[] )
 		{
 			Test13_7, 3, _T( "test the wxJSONReader::Strto(u)ll function" )
 		},
-		{ 0 },{ 0 },
+		{ nullptr },{ nullptr },
 		
 
 		// family #14		(test11.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto (all)
 			_T( "test the use of STL for array and object types" )
 		},
@@ -555,12 +555,12 @@ int main( int argc, char* argv[] )
 		{
 			Test14_3, 3, _T( "test a JSON key/value type" )
 		},
-		{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },{ nullptr },
 
 
 		// family #15		(test12.cpp)
 		{
-			0,		// test #0: description of the family
+			nullptr,		// test #0: description of the family
 			3,		// m_auto (all)
 			_T( "test the new wxJSON type: memory buffer" )
 		},
@@ -582,10 +582,10 @@ int main( int argc, char* argv[] )
 		{
 			Test15_6, 3, _T( "test the reader for memory buffer types" )
 		},
-		{ 0 },{ 0 },{ 0 },
+		{ nullptr },{ nullptr },{ nullptr },
 
 		// END OF TABLE
-		{0}
+		{nullptr}
 		
 	};
 
