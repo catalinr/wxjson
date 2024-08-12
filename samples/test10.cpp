@@ -34,12 +34,6 @@
 #include "test.h"
 
 
-static int TestX_X()
-{
-	return 0;
-}
-
-
 //
 // test the wxWidgets definitions and macros
 int Test13_1()
