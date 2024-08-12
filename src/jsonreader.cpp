@@ -245,9 +245,7 @@ wxJSONReader::wxJSONReader( int flags, int maxErrors )
 }
 
 //! Dtor - does nothing
-wxJSONReader::~wxJSONReader()
-{
-}
+wxJSONReader::~wxJSONReader() = default;
 
 //! Parse the JSON document.
 /*!
