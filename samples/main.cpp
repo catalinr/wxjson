@@ -715,7 +715,7 @@ void PrintErrors( wxJSONReader& reader )
 	s.Printf( _T( "\nERRORS: count=%d\n"), numErrors );
 	TestCout( s );
 	const wxArrayString& errors = reader.GetErrors();
-	for ( int i = 0; i < errors.size(); i++ )  {
+	for ( size_t i = 0; i < errors.size(); i++ )  {
 		TestCout( errors[i] );
 		TestCout( _T( "\n" ));
 	}
@@ -723,7 +723,7 @@ void PrintErrors( wxJSONReader& reader )
 	const wxArrayString& warnings = reader.GetWarnings();
 	s.Printf( _T("WARNINGS: count=%d\n"), numWarn );
 	TestCout( s );
-	for ( int i = 0; i < warnings.size(); i++ )  {
+	for ( size_t i = 0; i < warnings.size(); i++ )  {
 		TestCout( warnings[i] );
 		TestCout( _T( "\n" ));
 	}
